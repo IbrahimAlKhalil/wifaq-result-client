@@ -1,1 +1,163 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import "app/styles/var";
+
+@font-face {
+  font-family: SolaimanLipi;
+  src: url("assets/fonts/SolaimanLipi.ttf") format('truetype');
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: SolaimanLipi, sans-serif;
+}
+
+
+// margin
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+// text align
+
+.text-center {
+  text-align: center;
+}
+
+// form
+
+.form-container {
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  mat-card {
+    width: calc(100% - 40px);
+    padding: 0;
+  }
+
+  mat-card-content {
+    padding: 16px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .submit {
+    width: 100%;
+  }
+
+
+  h2 {
+    background: $--wif-primary-color;
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+  }
+
+}
+
+@media screen and (min-width: $--wif-md) {
+  .form-container {
+    .submit {
+      width: 180px;
+      height: 40px;
+      display: block;
+    }
+
+    mat-card {
+      width: calc(100% - 450px);
+    }
+  }
+}
+
+
+/************ Material theme *****************/
+
+@include mat-core();
+
+$primary: (
+  50 : #e5e7ea,
+  100 : #bfc4ca,
+  200 : #959ca7,
+  300 : #6a7484,
+  400 : #4a5769,
+  500 : #2a394f,
+  600 : #253348,
+  700 : #1f2c3f,
+  800 : #192436,
+  900 : #0f1726,
+  A100 : #6699ff,
+  A200 : #3377ff,
+  A400 : #0055ff,
+  A700 : #004ce5,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+$accent: (
+  50 : #ffe0f6,
+  100 : #ffb3e9,
+  200 : #ff80da,
+  300 : #ff4dcb,
+  400 : #ff26bf,
+  500 : #ff00b4,
+  600 : #ff00ad,
+  700 : #ff00a4,
+  800 : #ff009c,
+  900 : #ff008c,
+  A100 : #ffffff,
+  A200 : #fff2f9,
+  A400 : #ffbfdf,
+  A700 : #ffa6d2,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$typography: mat-typography-config(
+  $font-family: (SolaimanLipi, sans-serif)
+);
+
+$theme: mat-light-theme(mat-palette($primary, 500), mat-palette($accent, 300));
+
+@include angular-material-theme($theme);
+@include angular-material-typography($typography);

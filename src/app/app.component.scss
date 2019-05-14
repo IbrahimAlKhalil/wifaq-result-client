@@ -1,0 +1,102 @@
+@import "styles/var";
+
+#container {
+  height: 100vh;
+
+  &.loading {
+    height: calc(100vh - 4px);
+  }
+}
+
+.sidebar {
+  width: calc(100vw - 80px);
+  border: 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+
+  $link-color: #4787ed;
+  $border-color: #ebeef5;
+
+  a {
+    text-shadow: 0 0;
+    background: #fff;
+    color: $--wif-primary-color;
+    border-bottom: 1px solid $border-color;
+
+    &:first-child {
+      border-top: 1px solid $border-color;
+    }
+
+    &:hover {
+      color: $link-color !important;
+      background: transparentize(#4787ed, 0.9);
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+header {
+  display: grid;
+  padding: 40px 15px 15px;
+  background: $--wif-primary-color;
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+}
+
+small {
+  font-size: .75rem;
+  display: block;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 80px;
+}
+
+.title {
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mobile-header {
+  .logo {
+    height: calc(100% - 10px);
+    width: auto;
+  }
+}
+
+@media screen and (min-width: $--wif-md) {
+  .logo {
+    width: 100px;
+  }
+
+  .close-btn {
+    display: none;
+  }
+
+  .sidebar {
+    width: 410px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+}
