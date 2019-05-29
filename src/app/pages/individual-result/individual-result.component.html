@@ -1,7 +1,8 @@
 <div id="result-container" *ngIf="student">
   <div class="header">
     <div class="flex name-and-logo center-vertical center-horizontal">
-      <div>
+      <img class="logo" src="../../../assets/images/logo.svg">
+      <div class="name">
         <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
         <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
         <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
@@ -19,9 +20,9 @@
           <td>রোল নম্বরঃ</td>
           <td>{{roll|toBn}}</td>
           <td>নিবন্ধন নংঃ</td>
-          <td>{{student.regId|toBn}}</td>
+          <td>{{student.regId}}</td>
           <td class="print-only">জন্ম তারিখঃ</td>
-          <td class="print-only">{{student.dob|date|toBn}}</td>
+          <td class="print-only">{{student.dob}}</td>
         </tr>
         <tr>
           <td>নামঃ</td>
@@ -44,11 +45,11 @@
         <tbody>
         <tr>
           <td>মোট প্রাপ্ত নম্বরঃ</td>
-          <td>{{student.results|totalMark|toBn}}</td>
+          <td>{{student.total}}</td>
         </tr>
         <tr *ngIf="student.graceValue">
           <td>গ্রেসঃ</td>
-          <td>{{student.graceValue|toBn}} নম্বর ({{student.graceLabel}})</td>
+          <td>{{student.graceValue}} নম্বর ({{student.graceLabel}})</td>
         </tr>
         <tr>
           <td>প্রাপ্ত বিভাগঃ</td>
@@ -75,18 +76,18 @@
         <tr *ngFor="let subject of student.subjects; index as i">
           <td>{{i + 1|toBn}}</td>
           <td>{{subject}}</td>
-          <td>{{student.results[i]|toBn}}</td>
+          <td>{{student.results[i]}}</td>
         </tr>
         <tr class="print-only">
           <td></td>
           <td>গ্রেসঃ</td>
-          <td>{{student.graceValue|toBn}} নম্বর ({{student.graceLabel}})</td>
+          <td>{{student.graceValue}} নম্বর ({{student.graceLabel}})</td>
         </tr>
 
         <tr class="print-only">
           <td></td>
           <td>মোট প্রাপ্ত নম্বরঃ</td>
-          <td>{{student.results|totalMark|toBn}}</td>
+          <td>{{student.total}}</td>
         </tr>
 
         <tr class="print-only">

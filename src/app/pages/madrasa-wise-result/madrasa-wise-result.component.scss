@@ -7,11 +7,11 @@
   display: flex;
 }
 
-@media print {
-  @page {
-    size: landscape;
-    margin: 10rem;
-  }
+@page {
+  size: landscape;
+  margin: 10rem;
 }
 
-
+.name-and-logo {
+  justify-content: space-around;
+}

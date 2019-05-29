@@ -102,6 +102,17 @@ router-outlet ~ * {
 }
 
 .name-and-logo {
+  display: flex;
+  justify-content: center;
+
+  .logo {
+    width: 125px;
+    align-self: flex-start;
+  }
+
+  .name {
+    margin-top: 25px;
+  }
 
   h2 {
     color: #fff;

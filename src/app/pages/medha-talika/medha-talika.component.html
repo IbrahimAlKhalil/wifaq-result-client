@@ -1,7 +1,8 @@
 <div id="result-container" *ngIf="students">
   <div class="header">
     <div class="flex name-and-logo center-vertical center-horizontal">
-      <div>
+      <img class="logo" src="../../../assets/images/logo.svg">
+      <div class="name">
         <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
         <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
         <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
@@ -27,8 +28,8 @@
           <td>{{student.position|toBn}}</td>
           <td>{{student.roll|toBn}}</td>
           <td>{{student.name}}</td>
-          <td>{{madrasas[student.elhaq]}}</td>
-          <td>{{student.total|toBn}}</td>
+          <td>{{madrasas[student.madrasa]}}</td>
+          <td>{{student.total}}</td>
         </tr>
         </tbody>
       </table>

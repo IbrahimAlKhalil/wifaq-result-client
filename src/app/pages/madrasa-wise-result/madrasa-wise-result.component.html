@@ -1,11 +1,14 @@
 <div id="result-container" *ngIf="result">
   <div class="header">
     <div class="flex name-and-logo center-vertical center-horizontal">
-      <div>
-        <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
-        <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
-        <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
-        <p>মারহালাঃ {{marhala}}</p>
+      <div class="flex">
+        <img class="logo" src="../../../assets/images/logo.svg">
+        <div class="name">
+          <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+          <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
+          <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
+          <p>মারহালাঃ {{marhala}}</p>
+        </div>
       </div>
 
       <div class="table">
@@ -41,7 +44,7 @@
         <tbody>
         <tr>
           <td>মাদরাসাঃ</td>
-          <td>{{result.madrasa|toBn}}</td>
+          <td>{{result.madrasa}}</td>
         </tr>
         <tr>
           <td>মারকাযঃ</td>
@@ -72,11 +75,11 @@
           <td>{{i + 1|toBn}}</td>
           <td>{{student.roll|toBn}}</td>
           <td>{{student.name}}</td>
-          <td *ngFor="let mark of student.results">{{mark|toBn}}</td>
-          <td>{{student.graceValue|toBn}}</td>
-          <td>{{student.results|totalMark|toBn}}</td>
+          <td *ngFor="let mark of student.results">{{mark}}</td>
+          <td>{{student.graceValue}}</td>
+          <td>{{student.total}}</td>
           <td>{{student.division}}</td>
-          <td>{{student.position || ''}}</td>
+          <td>{{student.position || ''|toBn}}</td>
         </tr>
         </tbody>
       </table>

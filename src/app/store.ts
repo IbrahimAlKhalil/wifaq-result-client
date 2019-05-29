@@ -8,7 +8,8 @@ export const store = new NoRxJS({
 
 const mediaQueryList = window.matchMedia('(max-width: 600px)');
 
-mediaQueryList.addEventListener('change', media => {
+
+mediaQueryList.addListener(media => {
   store.commit({
     isMobile: media.matches
   });

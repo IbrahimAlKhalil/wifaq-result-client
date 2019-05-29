@@ -20,7 +20,6 @@ export const marhalas: Marhala[] = [
     id: 3,
     name: 'সানাবিয়া উলইয়া'
   },
-
   {
     id: 5,
     name: 'মুতাওয়াসসিতাহ'

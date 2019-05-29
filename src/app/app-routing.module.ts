@@ -8,7 +8,6 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {IndividualResultComponent} from './pages/individual-result/individual-result.component';
 import {ToBnPipe} from './pipes/to-bn.pipe';
-import {TotalMarkPipe} from './pipes/total-mark.pipe';
 import {MadrasaWiseResultComponent} from './pages/madrasa-wise-result/madrasa-wise-result.component';
 import {MedhaTalikaComponent} from './pages/medha-talika/medha-talika.component';
 
@@ -63,7 +62,6 @@ const routes: Routes = [
     MedhaTalikaFormComponent,
     IndividualResultComponent,
     ToBnPipe,
-    TotalMarkPipe,
     MadrasaWiseResultComponent,
     MedhaTalikaComponent
   ]
