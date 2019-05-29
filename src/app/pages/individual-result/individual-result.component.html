@@ -1,0 +1,114 @@
+<div id="result-container" *ngIf="student">
+  <div class="header">
+    <div class="flex name-and-logo center-vertical center-horizontal">
+      <div>
+        <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+        <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
+        <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
+        <p class="no-print">মারহালাঃ {{marhala}}</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="marhala print-only">মারহালাঃ {{marhala}}</p>
+  <div id="tables">
+    <div class="table-wrapper">
+      <table class="nice-table">
+        <tbody>
+        <tr>
+          <td>রোল নম্বরঃ</td>
+          <td>{{roll|toBn}}</td>
+          <td>নিবন্ধন নংঃ</td>
+          <td>{{student.regId|toBn}}</td>
+          <td class="print-only">জন্ম তারিখঃ</td>
+          <td class="print-only">{{student.dob|date|toBn}}</td>
+        </tr>
+        <tr>
+          <td>নামঃ</td>
+          <td>{{student.name}}</td>
+          <td>মাদরাসাঃ</td>
+          <td>{{student.madrasa}}</td>
+        </tr>
+        <tr>
+          <td>পিতার নামঃ</td>
+          <td>{{student.father}}</td>
+          <td>মারকাযঃ</td>
+          <td>{{student.markaj}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrapper no-print">
+      <table class="nice-table">
+        <tbody>
+        <tr>
+          <td>মোট প্রাপ্ত নম্বরঃ</td>
+          <td>{{student.results|totalMark|toBn}}</td>
+        </tr>
+        <tr *ngIf="student.graceValue">
+          <td>গ্রেসঃ</td>
+          <td>{{student.graceValue|toBn}} নম্বর ({{student.graceLabel}})</td>
+        </tr>
+        <tr>
+          <td>প্রাপ্ত বিভাগঃ</td>
+          <td>{{student.division}}</td>
+        </tr>
+        <tr>
+          <td>মেধা স্থানঃ</td>
+          <td>{{(student.position || '') | toBn}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="nowrap text-center">
+        <thead class="nowrap">
+        <tr>
+          <th>ক্রমিক নং</th>
+          <th>বিষয়</th>
+          <th>প্রাপ্ত নম্বর</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let subject of student.subjects; index as i">
+          <td>{{i + 1|toBn}}</td>
+          <td>{{subject}}</td>
+          <td>{{student.results[i]|toBn}}</td>
+        </tr>
+        <tr class="print-only">
+          <td></td>
+          <td>গ্রেসঃ</td>
+          <td>{{student.graceValue|toBn}} নম্বর ({{student.graceLabel}})</td>
+        </tr>
+
+        <tr class="print-only">
+          <td></td>
+          <td>মোট প্রাপ্ত নম্বরঃ</td>
+          <td>{{student.results|totalMark|toBn}}</td>
+        </tr>
+
+        <tr class="print-only">
+          <td></td>
+          <td>প্রাপ্ত বিভাগঃ</td>
+          <td>{{student.division}}</td>
+        </tr>
+
+        <tr class="print-only">
+          <td></td>
+          <td>মেধা স্থানঃ</td>
+          <td>{{(student.position || '')|toBn}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <p class="credit">Developed by <b>Sahara IT</b></p>
+    <small>&copy; ২০১৯ বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ কতৃক সর্বস্বত্ব সংরক্ষিত</small>
+    <br>
+    <br>
+  </div>
+</div>

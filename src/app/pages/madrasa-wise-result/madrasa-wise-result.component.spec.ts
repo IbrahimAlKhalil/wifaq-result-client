@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatisticsComponent } from './statistics.component';
+import { MadrasaWiseResultComponent } from './madrasa-wise-result.component';
 
-describe('StatisticsComponent', () => {
-  let component: StatisticsComponent;
-  let fixture: ComponentFixture<StatisticsComponent>;
+describe('MadrasaWiseResultComponent', () => {
+  let component: MadrasaWiseResultComponent;
+  let fixture: ComponentFixture<MadrasaWiseResultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatisticsComponent ]
+      declarations: [ MadrasaWiseResultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatisticsComponent);
+    fixture = TestBed.createComponent(MadrasaWiseResultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

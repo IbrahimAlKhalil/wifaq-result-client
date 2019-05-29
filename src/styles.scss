@@ -1,5 +1,6 @@
 @import '~@angular/material/theming';
 @import "app/styles/var";
+@import "app/styles/table";
 
 @font-face {
   font-family: SolaimanLipi;
@@ -26,7 +27,7 @@ body {
   margin-left: auto;
 }
 
-// text align
+// name align
 
 .text-center {
   text-align: center;
@@ -35,11 +36,11 @@ body {
 // form
 
 .form-container {
-  height: calc(100vh - 64px);
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin-top: 100px;
 
   mat-card {
     width: calc(100% - 40px);
@@ -48,6 +49,7 @@ body {
 
   mat-card-content {
     padding: 16px;
+    margin-top: 20px;
   }
 
   mat-form-field {
@@ -63,6 +65,7 @@ body {
     background: $--wif-primary-color;
     color: #fff;
     padding: 15px 0;
+    margin-bottom: 0;
     border-radius: 5px 5px 0 0;
     text-align: center;
   }
@@ -71,6 +74,9 @@ body {
 
 @media screen and (min-width: $--wif-md) {
   .form-container {
+    height: calc(100vh - 64px);
+    margin-top: 0;
+
     .submit {
       width: 180px;
       height: 40px;
@@ -82,6 +88,138 @@ body {
     }
   }
 }
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+// Result page
+.header {
+  background: $--wif-primary-color;
+  padding: 20px 0;
+}
+
+.name-and-logo {
+
+  h2 {
+    color: #fff;
+  }
+
+  h1 {
+    color: #fff;
+    transition: all .3s ease-in-out;
+    margin: 0 5px 5px;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    transition: all .3s ease-in-out;
+    margin: 5px;
+  }
+
+  .cite {
+    font-size: 1.4rem;
+  }
+}
+
+.credit {
+  color: $--wif-primary-color;
+  font-size: .93rem;
+}
+
+@media all and (max-width: 800px) {
+  .name-and-logo {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .cite {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media all and (max-width: 620px) {
+  .name-and-logo {
+    h1 {
+      font-size: 1.26rem;
+    }
+
+    p {
+      font-size: .92rem;
+    }
+
+    .cite {
+      font-size: .96rem;
+    }
+  }
+
+
+}
+
+@media all and (max-width: 360px) {
+  .name-and-logo {
+    h1 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: .89rem;
+    }
+
+    .cite {
+      font-size: .92rem;
+    }
+  }
+}
+
+
+// Scrollbar design
+
+@media all and (min-width: $--wif-md) {
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a394f;
+    border-radius: 5px;
+  }
+}
+
+/******* Print styles **************/
+
+@media screen {
+  .print-only {
+    display: none;
+  }
+}
+
+@media print {
+  * {
+    box-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .header * {
+    color: #000 !important;
+  }
+}
+
+/*****************/
 
 
 /************ Material theme *****************/

@@ -1,0 +1,92 @@
+<div id="result-container" *ngIf="result">
+  <div class="header">
+    <div class="flex name-and-logo center-vertical center-horizontal">
+      <div>
+        <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+        <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
+        <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
+        <p>মারহালাঃ {{marhala}}</p>
+      </div>
+
+      <div class="table">
+        <table class="nice-table">
+          <tbody>
+          <tr>
+            <td>মোট বিষয়ঃ</td>
+            <td><span>১১</span> টি</td>
+            <td>পূর্ণমান</td>
+            <td>১০০x১১=১১০0</td>
+          </tr>
+          <tr>
+            <td>মুমতায</td>
+            <td>৮০x১১=৮৮০</td>
+            <td>জায়্যিদ জিদ্দান</td>
+            <td>৬৫x১১=৭১৫</td>
+          </tr>
+          <tr>
+            <td>জায়্যিদ</td>
+            <td>৫০x১১=৫৫০</td>
+            <td>মাকবুল</td>
+            <td>৩৫x১১=৩৮৫</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="tables">
+    <div class="table-wrapper">
+      <table class="nice-table">
+        <tbody>
+        <tr>
+          <td>মাদরাসাঃ</td>
+          <td>{{result.madrasa|toBn}}</td>
+        </tr>
+        <tr>
+          <td>মারকাযঃ</td>
+          <td>{{result.markaj}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrapper subjects">
+      <table class="nowrap text-center">
+        <thead class="nowrap">
+        <tr>
+          <th>ক্রমিক নং</th>
+          <th>রোল নং</th>
+          <th>পরীক্ষার্থীর নাম</th>
+          <th *ngFor="let subject of result.subjects">
+            <span>{{subject}}</span>
+          </th>
+          <th>গ্রেস</th>
+          <th>মোট</th>
+          <th>বিভাগ</th>
+          <th>স্থান</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of result.students; index as i">
+          <td>{{i + 1|toBn}}</td>
+          <td>{{student.roll|toBn}}</td>
+          <td>{{student.name}}</td>
+          <td *ngFor="let mark of student.results">{{mark|toBn}}</td>
+          <td>{{student.graceValue|toBn}}</td>
+          <td>{{student.results|totalMark|toBn}}</td>
+          <td>{{student.division}}</td>
+          <td>{{student.position || ''}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <p class="credit">Developed by <b>Sahara IT</b></p>
+    <small>&copy; ২০১৯ বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ কতৃক সর্বস্বত্ব সংরক্ষিত</small>
+    <br>
+    <br>
+  </div>
+</div>

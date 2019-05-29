@@ -1,0 +1,44 @@
+<div id="result-container" *ngIf="students">
+  <div class="header">
+    <div class="flex name-and-logo center-vertical center-horizontal">
+      <div>
+        <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+        <p class="cite">বাংলাদেশ কওমি মাদরাসা শিক্ষা বোর্ড</p>
+        <p>প্রাথমিক ফলাফল (নম্বরপত্র) - {{year | toBn}}</p>
+        <p>মারহালাঃ {{marhala}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tables">
+    <div class="table-wrapper">
+      <table class="nowrap text-center">
+        <thead class="nowrap">
+        <tr>
+          <th>মেধা</th>
+          <th>রোল নং</th>
+          <th>পরীক্ষার্থীর নাম</th>
+          <th>মাদ্রাসা</th>
+          <th>প্রাপ্ত নম্বর</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{student.position|toBn}}</td>
+          <td>{{student.roll|toBn}}</td>
+          <td>{{student.name}}</td>
+          <td>{{madrasas[student.elhaq]}}</td>
+          <td>{{student.total|toBn}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <p class="credit">Developed by <b>Sahara IT</b></p>
+  <small>&copy; ২০১৯ বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ কতৃক সর্বস্বত্ব সংরক্ষিত</small>
+  <br>
+  <br>
+</div>

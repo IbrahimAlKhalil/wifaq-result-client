@@ -1,0 +1,17 @@
+.subjects th span {
+  writing-mode: vertical-lr;
+  white-space: nowrap;
+}
+
+.flex {
+  display: flex;
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 10rem;
+  }
+}
+
+

@@ -1,0 +1,26 @@
+@import "../../styles/var";
+
+
+
+@media screen and (min-width: $--wif-md) {
+  #result-container {
+    padding: 0 240px;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+  }
+  .nice-table td {
+    font-size: .63rem;
+  }
+
+  .marhala {
+    font-size: 1.2rem;
+  }
+
+  * {
+    font-size: .7rem;
+  }
+}

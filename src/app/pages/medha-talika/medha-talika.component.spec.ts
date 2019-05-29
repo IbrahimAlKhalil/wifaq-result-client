@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MadrasaStatFormComponent } from './madrasa-stat-form.component';
+import { MedhaTalikaComponent } from './medha-talika.component';
 
-describe('MadrasaStatFormComponent', () => {
-  let component: MadrasaStatFormComponent;
-  let fixture: ComponentFixture<MadrasaStatFormComponent>;
+describe('MedhaTalikaComponent', () => {
+  let component: MedhaTalikaComponent;
+  let fixture: ComponentFixture<MedhaTalikaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MadrasaStatFormComponent ]
+      declarations: [ MedhaTalikaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MadrasaStatFormComponent);
+    fixture = TestBed.createComponent(MedhaTalikaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

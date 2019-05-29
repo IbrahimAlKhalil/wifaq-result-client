@@ -1,11 +1,16 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatSelectModule} from '@angular/material';
 import {IndividualFormComponent} from './pages/individual-form/individual-form.component';
 import {MadrasaWiseFormComponent} from './pages/madrasa-wise-form/madrasa-wise-form.component';
 import {MedhaTalikaFormComponent} from './pages/medha-talika-form/medha-talika-form.component';
-import {MadrasaStatFormComponent} from './pages/madrasa-stat-form/madrasa-stat-form.component';
-import {StatisticsComponent} from './pages/statistics/statistics.component';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {IndividualResultComponent} from './pages/individual-result/individual-result.component';
+import {ToBnPipe} from './pipes/to-bn.pipe';
+import {TotalMarkPipe} from './pipes/total-mark.pipe';
+import {MadrasaWiseResultComponent} from './pages/madrasa-wise-result/madrasa-wise-result.component';
+import {MedhaTalikaComponent} from './pages/medha-talika/medha-talika.component';
 
 const routes: Routes = [
   {
@@ -14,30 +19,54 @@ const routes: Routes = [
   },
 
   {
-    path: 'madrasas/:elhaq/:year/:classId',
+    path: 'madrasas',
     component: MadrasaWiseFormComponent
   },
 
   {
-    path: 'medha-talika/:year/:classId/:gender',
+    path: 'medha-talika',
     component: MedhaTalikaFormComponent
   },
 
+
   {
-    path: 'madrasas/:elhaq/stat',
-    component: MadrasaStatFormComponent
+    path: 'students/:year/:classId/:roll',
+    component: IndividualResultComponent
   },
 
   {
-    path: 'statistics',
-    component: StatisticsComponent
+    path: 'madrasas/:elhaq/:year/:classId',
+    component: MadrasaWiseResultComponent
   },
+
+  {
+    path: 'medha-talika/:year/:classId/:gender',
+    component: MedhaTalikaComponent
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [
+    RouterModule.forRoot(routes),
+    MatCardModule, MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    BrowserModule,
+    MatProgressBarModule
+  ],
   exports: [RouterModule],
-  declarations: [IndividualFormComponent, MadrasaWiseFormComponent, MedhaTalikaFormComponent, MadrasaStatFormComponent, StatisticsComponent]
+  declarations: [
+    IndividualFormComponent,
+    MadrasaWiseFormComponent,
+    MedhaTalikaFormComponent,
+    IndividualResultComponent,
+    ToBnPipe,
+    TotalMarkPipe,
+    MadrasaWiseResultComponent,
+    MedhaTalikaComponent
+  ]
 })
 export class AppRoutingModule {
 }

@@ -1,54 +1,41 @@
-<mat-progress-bar mode="indeterminate" *ngIf="false"></mat-progress-bar>
-
-<mat-sidenav-container [hasBackdrop]="isMobile" id="container">
+<mat-progress-bar mode="indeterminate" *ngIf="state.loading"></mat-progress-bar>
+<mat-sidenav-container [hasBackdrop]="state.isMobile" id="container">
 
   <!----------------- Sidebar --------------------->
-  <mat-sidenav #drawer [mode]="isMobile?'over':'side'" class="sidebar" [opened]="!isMobile">
+  <mat-sidenav (closed)="hideDrawer()" [mode]="state.isMobile?'over':'side'" class="sidebar"
+               [opened]="state.isDrawer">
     <div class="wrapper">
       <header>
         <img src="../assets/images/logo.svg" class="logo mx-auto" [alt]="title">
         <h1 class="title text-center">{{title}}</h1>
       </header>
 
-      <!----------------- Sidebar close button for mobile --------------------->
-      <!--<button mat-button color="accent" class="close-btn" (click)="drawer.toggle()">
-        <mat-icon>arrow_back</mat-icon>
-      </button>-->
-
       <mat-nav-list>
-        <a routerLink="/" mat-list-item disableRipple>
+        <a *ngFor="let navItem of navItems" [routerLink]="navItem.path" routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{exact: true}"
+           (click)="hideDrawer()" mat-list-item disableRipple>
           <mat-icon matListIcon>chevron_right</mat-icon>
-          ব্যক্তিগত ফলাফল</a>
-        <a routerLink="madrasas/1@1111/2010/1" mat-list-item disableRipple>
-          <mat-icon matListIcon>chevron_right</mat-icon>
-          মাদরাসাওয়ারী ফলাফল</a>
-        <a routerLink="medha-talika/2014/1/1" mat-list-item disableRipple>
-          <mat-icon matListIcon>chevron_right</mat-icon>
-          মেধা তালিকা</a>
-        <a routerLink="madrasas/1@1112/stat" mat-list-item disableRipple>
-          <mat-icon matListIcon>chevron_right</mat-icon>
-          মাদরাসাওয়ারী পরিসংখ্যান</a>
-        <a routerLink="statistics" mat-list-item disableRipple>
-          <mat-icon matListIcon>chevron_right</mat-icon>
-          পরিসংখ্যান</a>
+          {{navItem.name}}
+        </a>
       </mat-nav-list>
 
-
-      <small>&copy; বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ কতৃক সর্বস্বত্ব সংরক্ষিত</small>
+      <small>&copy; ২০১৯ বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ কতৃক সর্বস্বত্ব সংরক্ষিত</small>
     </div>
   </mat-sidenav>
 
   <!--------------------- Contents ------------------->
   <mat-sidenav-content id="contents">
-    <mat-toolbar color="primary" class="mobile-header">
-      <button mat-icon-button (click)="drawer.toggle()">
+    <mat-toolbar color="primary" class="mobile-header no-print">
+      <button mat-icon-button (click)="openDrawer()">
         <mat-icon>menu</mat-icon>
       </button>
 
-      <!--      <img src="../assets/images/logo.svg" class="logo ml-auto" [alt]="title">-->
+      <img src="../assets/images/logo.svg" class="logo ml-auto" [alt]="title">
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+    <main [@routeAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
