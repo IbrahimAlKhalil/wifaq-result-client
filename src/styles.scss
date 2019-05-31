@@ -140,7 +140,14 @@ router-outlet ~ * {
 
 .credit {
   color: $--wif-primary-color;
-  font-size: .93rem;
+  margin-bottom: 20px;
+  margin-top: auto;
+
+  a {
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
 }
 
 @media all and (max-width: 800px) {
@@ -212,7 +219,7 @@ router-outlet ~ * {
 
 @media screen {
   .print-only {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -228,6 +235,16 @@ router-outlet ~ * {
   .header * {
     color: #000 !important;
   }
+
+  .print-btn {
+    display: none;
+  }
+}
+
+.print-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
 }
 
 /*****************/

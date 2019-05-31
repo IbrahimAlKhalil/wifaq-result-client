@@ -1,6 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatSelectModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatSelectModule
+} from '@angular/material';
 import {IndividualFormComponent} from './pages/individual-form/individual-form.component';
 import {MadrasaWiseFormComponent} from './pages/madrasa-wise-form/madrasa-wise-form.component';
 import {MedhaTalikaFormComponent} from './pages/medha-talika-form/medha-talika-form.component';
@@ -53,7 +61,7 @@ const routes: Routes = [
     MatSelectModule,
     FormsModule,
     BrowserModule,
-    MatProgressBarModule
+    MatProgressBarModule, MatIconModule
   ],
   exports: [RouterModule],
   declarations: [

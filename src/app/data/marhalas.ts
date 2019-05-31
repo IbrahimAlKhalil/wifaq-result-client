@@ -6,10 +6,10 @@ export interface Marhala {
 }
 
 export const marhalas: Marhala[] = [
-  {
+  /*{
     id: 1,
     name: 'তাকমিল',
-  },
+  },*/
 
   {
     id: 2,

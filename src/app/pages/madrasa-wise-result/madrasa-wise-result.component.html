@@ -1,4 +1,4 @@
-<div id="result-container" *ngIf="result">
+<div id="result-container" *ngIf="result" #elm>
   <div class="header">
     <div class="flex name-and-logo center-vertical center-horizontal">
       <div class="flex">
@@ -11,26 +11,26 @@
         </div>
       </div>
 
-      <div class="table">
+      <div class="table rules">
         <table class="nice-table">
           <tbody>
           <tr>
             <td>মোট বিষয়ঃ</td>
-            <td><span>১১</span> টি</td>
+            <td>{{subjectCount|toBn}} টি</td>
             <td>পূর্ণমান</td>
-            <td>১০০x১১=১১০0</td>
+            <td>১০০x{{subjectCount|toBn}}={{subjectCount * 100|toBn}}</td>
           </tr>
           <tr>
             <td>মুমতায</td>
-            <td>৮০x১১=৮৮০</td>
+            <td>৮০x{{subjectCount|toBn}}={{subjectCount * 80|toBn}}</td>
             <td>জায়্যিদ জিদ্দান</td>
-            <td>৬৫x১১=৭১৫</td>
+            <td>৬৫x{{subjectCount|toBn}}={{subjectCount * 65|toBn}}</td>
           </tr>
           <tr>
             <td>জায়্যিদ</td>
-            <td>৫০x১১=৫৫০</td>
+            <td>৫০x{{subjectCount|toBn}}={{subjectCount * 50|toBn}}</td>
             <td>মাকবুল</td>
-            <td>৩৫x১১=৩৮৫</td>
+            <td>৩৫x{{subjectCount|toBn}}={{subjectCount * 35|toBn}}</td>
           </tr>
           </tbody>
         </table>
@@ -45,10 +45,6 @@
         <tr>
           <td>মাদরাসাঃ</td>
           <td>{{result.madrasa}}</td>
-        </tr>
-        <tr>
-          <td>মারকাযঃ</td>
-          <td>{{result.markaj}}</td>
         </tr>
         </tbody>
       </table>
@@ -75,7 +71,7 @@
           <td>{{i + 1|toBn}}</td>
           <td>{{student.roll|toBn}}</td>
           <td>{{student.name}}</td>
-          <td *ngFor="let mark of student.results">{{mark}}</td>
+          <td *ngFor="let subject of result.subjects; index as i">{{student.results[i]}}</td>
           <td>{{student.graceValue}}</td>
           <td>{{student.total}}</td>
           <td>{{student.division}}</td>
@@ -92,4 +88,10 @@
     <br>
     <br>
   </div>
+</div>
+
+<div class="print-btn">
+  <button color="primary" (click)="print()" mat-fab>
+    <mat-icon>print</mat-icon>
+  </button>
 </div>

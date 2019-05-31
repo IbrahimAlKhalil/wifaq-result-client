@@ -19,22 +19,28 @@
         <tr>
           <td>রোল নম্বরঃ</td>
           <td>{{roll|toBn}}</td>
-          <td>নিবন্ধন নংঃ</td>
-          <td>{{student.regId}}</td>
+          <!--<td>নিবন্ধন নংঃ</td>
+          <td>{{student.regId}}</td>-->
+          <td>জন্ম তারিখঃ</td>
+          <td>{{student.dob}}</td>
           <td class="print-only">জন্ম তারিখঃ</td>
           <td class="print-only">{{student.dob}}</td>
         </tr>
         <tr>
           <td>নামঃ</td>
           <td>{{student.name}}</td>
-          <td>মাদরাসাঃ</td>
-          <td>{{student.madrasa}}</td>
+          <!--<td>মাদরাসাঃ</td>
+          <td>{{student.madrasa}}</td>-->
+          <td>নিবন্ধন নংঃ</td>
+          <td>{{student.regId}}</td>
         </tr>
         <tr>
           <td>পিতার নামঃ</td>
           <td>{{student.father}}</td>
-          <td>মারকাযঃ</td>
-          <td>{{student.markaj}}</td>
+          <!--<td>মারকাযঃ</td>
+          <td>{{student.markaj}}</td>-->
+          <td>মাদরাসাঃ</td>
+          <td>{{student.madrasa}}</td>
         </tr>
         </tbody>
       </table>
@@ -47,7 +53,7 @@
           <td>মোট প্রাপ্ত নম্বরঃ</td>
           <td>{{student.total}}</td>
         </tr>
-        <tr *ngIf="student.graceValue">
+        <tr *ngIf="student.graceValue !== '০'">
           <td>গ্রেসঃ</td>
           <td>{{student.graceValue}} নম্বর ({{student.graceLabel}})</td>
         </tr>
@@ -78,7 +84,7 @@
           <td>{{subject}}</td>
           <td>{{student.results[i]}}</td>
         </tr>
-        <tr class="print-only">
+        <tr class="print-only" *ngIf="student.graceValue !== '০'">
           <td></td>
           <td>গ্রেসঃ</td>
           <td>{{student.graceValue}} নম্বর ({{student.graceLabel}})</td>
@@ -107,9 +113,16 @@
   </div>
 
   <div class="text-center">
-    <p class="credit">Developed by <b>Sahara IT</b></p>
+    <div class="credit text-center">Developed by <a href="http://saharait.com">Sahara IT</a>
+    </div>
     <small>&copy; ২০১৯ বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ কতৃক সর্বস্বত্ব সংরক্ষিত</small>
     <br>
     <br>
   </div>
+</div>
+
+<div class="print-btn">
+  <button color="primary" (click)="print()" mat-fab>
+    <mat-icon>print</mat-icon>
+  </button>
 </div>

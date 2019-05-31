@@ -20,6 +20,10 @@ export class MixinResult implements OnInit, OnDestroy {
     });
   }
 
+  print() {
+    window.print();
+  }
+
   ngOnInit(): void {
     store.commit({
       isDrawer: false,
