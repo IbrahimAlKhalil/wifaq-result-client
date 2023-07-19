@@ -1,4 +1,6 @@
-# WifresClient
+### Please read the README.md in https://github.com/IbrahimAlKhalil/wifaq-result-publisher#history
+
+# Wifaq Result Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
